@@ -62,16 +62,16 @@
               <span class="menu-icon">
                 <i class="mdi mdi-file-document-box"></i>
               </span>
-              <span class="menu-title">All Teachers</span>
+              <span class="menu-title">Teachers</span>
             </a>
           </li>
 
           <li class="nav-item menu-items">
-            <a class="nav-link" href="{{ url('add_teacher_view')}}">
+            <a class="nav-link" href="{{ url('topic')}}">
               <span class="menu-icon">
                 <i class="mdi mdi-file-document-box"></i>
               </span>
-              <span class="menu-title">Add Teachers</span>
+              <span class="menu-title">Topics</span>
             </a>
           </li>
 
@@ -86,14 +86,14 @@
 
           
 
-          <li class="nav-item menu-items">
+          <!-- <li class="nav-item menu-items">
             <a class="nav-link" href="{{ url('topic')}}">
               <span class="menu-icon">
                 <i class="mdi mdi-file-document-box"></i>
               </span>
               <span class="menu-title">Topics</span>
             </a>
-          </li>
+          </li> -->
 
           <li class="nav-item menu-items">
             <a class="nav-link" href="{{ url('user')}}">
@@ -114,13 +114,13 @@
           </li>
           
 
-          <li class="nav-item menu-items">
+          <!-- <li class="nav-item menu-items">
             <a class="nav-link" href="{{ url('quiz')}}">
               <span class="menu-icon">
                 <i class="mdi mdi-file-document-box"></i>
               </span>
               <span class="menu-title">Quiz</span>
             </a>
-          </li>
+          </li> -->
         </ul>
       </nav>

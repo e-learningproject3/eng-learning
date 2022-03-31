@@ -34,34 +34,40 @@
 
 
         <div class="container-fluid page-body-wrapper">
-            <div align="center" style="padding-top: 100px;">
-
-                <a class="btn btn-primary" href="{{url('create')}}">Add Lesson</a>
+            <div class="table-responsive">
+<br>
+                <a class="btn btn-outline-success" href="{{url('create')}}">Add Lesson</a>
                 <br>
-                <br>
-
-                <table style="background-color: gray;">
+<br>
+                <table class="table">
+                <thead>
                     <tr>
-                        <th style="padding: 10px;"> Name</th>
-                        <th style="padding: 10px;">Content</th>
-                        <th style="padding: 10px;">Image</th>
-                        <th style="padding: 10px;">Teacher</th>
-                        <th style="padding: 10px;">Topic</th>
-                        <th style="padding: 10px;">Delete</th>
-                        <!-- <th style="padding: 10px;">Edit</th> -->
-
+                        <th style="padding: 10px; padding-right: 80px;text-align: center;  color:white;"> Name</th>
+                        <th style="padding: 10px; padding-right: 80px; text-align: center; color:white;">Content</th>
+                        <th style="padding: 10px; padding-right: 80px; text-align: center; color:white;">Image</th>
+                        <th style="padding: 10px; padding-right: 80px; text-align: center; color:white;">Teacher</th>
+                        <th style="padding: 10px; padding-right: 80px; text-align: center; color:white;">Topic</th>
+                        <th style="padding: 10px; padding-right: 80px; text-align: center; color:white;">Type</th>
+                        <th style="padding: 10px; padding-right: 80px; text-align: center; color:white;">Level</th>
+                        <th style="padding: 10px; padding-right: 80px; text-align: center; color:white;">Delete</th>
                     </tr>
-
+                    </thead>
                     @foreach($data as $lesson)
-                    <tr align="center" style="background-color: silver; color: black;">
-                        <td>{{$lesson -> name}}</td>
-                        <td><a href="{{url('lesson_details',$lesson -> id)}}">Check for details</a></td>
-                        <td><img height="100" width="100" src="image/{{$lesson -> image}}" alt=""></td>
-                        <td>{{$lesson -> teacher}}</td>
-                        <td>{{$lesson -> topic}}</td>
-                        <td><a onclick="return confirm('Are you sure to delete this?')" class="btn btn-primary" href="{{url('deletelesson', $lesson -> id)}}">Delete</a></td>
-                        <!-- <td> <a class="btn btn-primary" href="{{url('updatelesson', $lesson -> id)}}">Update</a>
-                        </td> -->
+                    <tr>
+                        <td style="padding: 10px; padding-right: 80px; text-align: center; color:white;">{{substr($lesson -> name,0,20)}}</td>
+                        <td style="padding: 10px; padding-right: 80px; text-align: center; color:white;"><a href="{{url('lesson_details',$lesson -> id)}}">Check for details</a></td>
+                        <td style="padding: 10px; padding-right: 80px; text-align: center; color:white;"><img height="100" width="100" src="image/{{$lesson -> image}}" alt=""></td>
+                        @foreach($teacher as $teachers)
+                        <td style="padding: 10px; padding-right: 80px; text-align: center; color:white;">{{$teachers -> name }}</td>
+                        @endforeach
+                        @foreach($topic as $topics)
+                        <td style="padding: 10px; padding-right: 80px; text-align: center; color:white;">{{$topics -> content}}</td>
+                        @endforeach
+                        <td style="padding: 10px; padding-right: 80px; text-align: center; color:white;">{{$lesson -> type}}</td>
+                        <td style="padding: 10px; padding-right: 80px; text-align: center; color:white;">{{$lesson -> level}}</td>
+
+                        <td><a onclick="return confirm('Are you sure to delete this?')" class="btn btn-outline-success" href="{{url('deletelesson', $lesson -> id)}}">Delete</a></td>
+                       
                     </tr>
                     @endforeach
                 </table>

@@ -18,7 +18,7 @@
           <select name="teacher" id="departement" class="custom-select">
             <option value="">------Select Teacher-----</option>
             @foreach($teacher as $teachers)
-            <option value="{{$teachers -> name}}">
+            <option style="color: black;" value="{{$teachers -> id}}">
               {{$teachers -> name}} - {{$teachers -> speciality}}
             </option>
             @endforeach

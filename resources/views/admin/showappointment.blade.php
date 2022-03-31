@@ -35,44 +35,44 @@
         @include('admin.navbar')
 
         <div class="container-fluid page-body-wrapper">
-            <div align="center" style="padding-top: 100px;">
-                <table style="background-color: gray;">
+            <div class="table-responsive">
+                <table class="table">
                     <tr>
-                        <th style="padding: 10px;">Customer Name</th>
-                        <th style="padding: 10px;">Email</th>
-                        <th style="padding: 10px;">Phone</th>
-                        <th style="padding: 15px;">Teacher Name</th>
-                        <th style="padding: 10px;">Date</th>
-                        <th style="padding: 10px;">Message</th>
-                        <th style="padding: 10px;">Status</th>
-                        <th style="padding: 10px;">Approved</th>
-                        <th style="padding: 10px;">Cancelled</th>
+                        <th style="padding: 10px;padding-right: 60px;text-align: center; color:white;">Customer Name</th>
+                        <th style="padding: 10px;padding-right: 60px;text-align: center; color:white;">Email</th>
+                        <th style="padding: 10px;padding-right: 60px;text-align: center; color:white;">Phone</th>
+                        <th style="padding: 15px;padding-right: 60px;text-align: center; color:white;">Teacher Name</th>
+                        <th style="padding: 10px;padding-right: 60px;text-align: center; color:white;">Date</th>
+                        <th style="padding: 10px;padding-right: 60px;text-align: center; color:white;">Message</th>
+                        <th style="padding: 10px;padding-right: 60px;text-align: center; color:white;">Status</th>
+                        <th style="padding: 10px;padding-right: 60px;text-align: center; color:white;">Approved</th>
+                        <th style="padding: 10px;padding-right: 60px;text-align: center; color:white;">Cancelled</th>
 
                     </tr>
 
                     @foreach($data as $appoint)
                     <tr align="center" style="background-color: silver; color: black;">
-                        <td>{{$appoint -> name}}</td>
-                        <td>{{$appoint -> email}}</td>
-                        <td>{{$appoint -> phone}}</td>
+                        <td style="padding: 10px;padding-right: 60px;text-align: center; color:white;">{{$appoint -> name}}</td>
+                        <td style="padding: 10px;padding-right: 60px;text-align: center; color:white;">{{$appoint -> email}}</td>
+                        <td style="padding: 10px;padding-right: 60px;text-align: center; color:white;">{{$appoint -> phone}}</td>
 
                          @if($appoint -> teacher === null) 
                         <!-- <td>{{$appoint -> teacher}}</td> -->
                         <td>Waiting for new teacher</td>
                          @else
-                         <td>{{$appoint -> teacher}}</td>
+                         <td style="padding: 10px;padding-right: 100px;text-align: center; color:white;">{{$appoint -> teacher}}</td>
                         @endif
 
                         <!-- <td>{{$appoint -> teacher}}</td> -->
 
-                        <td>{{$appoint -> date}}</td>
-                        <td>{{$appoint -> message}}</td>
-                        <td>{{$appoint -> status}}</td>
+                        <td style="padding: 10px;padding-right: 100px;text-align: center; color:white;">{{$appoint -> date}}</td>
+                        <td style="padding: 10px;padding-right: 100px;text-align: center; color:white;">{{$appoint -> message}}</td>
+                        <td style="padding: 10px;padding-right: 100px;text-align: center; color:white;">{{$appoint -> status}}</td>
                         <td>
-                            <a class="bt btn-primary" href="{{url('approved', $appoint -> id)}}">Approved</a>
+                            <a class="btn btn-outline-success" href="{{url('approved', $appoint -> id)}}">Approved</a>
                         </td>
                         <td>
-                            <a class="bt btn-danger" href="{{url('cancelled', $appoint -> id)}}">Cancelled</a>
+                            <a class="btn btn-outline-danger" href="{{url('cancelled', $appoint -> id)}}">Cancelled</a>
                         </td>
                     </tr>
                     @endforeach

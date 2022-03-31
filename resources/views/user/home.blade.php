@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,7 +20,10 @@
   <link rel="stylesheet" href="../assets/vendor/animate/animate.css">
 
   <link rel="stylesheet" href="../assets/css/theme.css">
+
+  
 </head>
+
 <body>
 
   <!-- Back to top button -->
@@ -78,37 +82,37 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{{url('post')}}">Lesson</a>
+              
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{url('contact')}}">Contact</a>
-            </li>
+
+            
 
             @if (Route::has('login'))
 
             @auth
             <li class="nav-item">
-              <a class="nav-link" style="background-color: skyblue; color:white;" href="{{url('myappointment')}}">My Appointment</a>
+              <a class="nav-link"  href="{{url('myappointment')}}">Appointment</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" style="background-color: gray; color:white;" href="{{url('full-calender')}}">My Schedule </a>
+              <a class="nav-link"  href="{{url('full-calender')}}">Schedule </a>
             </li>
             <x-app-layout>
-    
+
             </x-app-layout>
-   
+
             @else
 
             <li class="nav-item">
-              <a class="btn btn-primary ml-lg-3" href="{{route('login')}}">Login</a>
+              <a class="btn btn-outline-primary ml-lg-3" href="{{route('login')}}">Login</a>
             </li>
             <li class="nav-item">
-              <a class="btn btn-primary ml-lg-3" href="{{route('register')}}">Register</a>
+              <a class="btn btn-outline-success ml-lg-3" href="{{route('register')}}">Register</a>
             </li>
 
             @endauth
 
             @endif
-            
+
           </ul>
         </div> <!-- .navbar-collapse -->
       </div> <!-- .container -->
@@ -117,13 +121,13 @@
 
 
   @if(session() -> has('message'))
-        <button type="button" class="close" data-dismiss="alert">
-          x
-        </button>
-        <div class="alert alert-success">
-          {{session() -> get('message')}}
-        </div>
-        @endif
+  <button type="button" class="close" data-dismiss="alert">
+    x
+  </button>
+  <div class="alert alert-success">
+    {{session() -> get('message')}}
+  </div>
+  @endif
 
   <div class="page-hero bg-image overlay-dark" style="background-image: url(../assets/img/bg_image_1.jpg);">
     <div class="hero-section">
@@ -187,13 +191,13 @@
   </div> <!-- .bg-light -->
 
   @include('user.teacher')
-  
+
 
   @include('user.latest')
- 
+
 
   @include('user.appointment')
-  
+
 
   <!-- <div class="page-section banner-home bg-image" style="background-image: url(../assets/img/banner-pattern.svg);">
     <div class="container py-5 py-lg-0">
@@ -264,15 +268,16 @@
     </div>
   </footer>
 
-<script src="../assets/js/jquery-3.5.1.min.js"></script>
+  <script src="../assets/js/jquery-3.5.1.min.js"></script>
 
-<script src="../assets/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/js/bootstrap.bundle.min.js"></script>
 
-<script src="../assets/vendor/owl-carousel/js/owl.carousel.min.js"></script>
+  <script src="../assets/vendor/owl-carousel/js/owl.carousel.min.js"></script>
 
-<script src="../assets/vendor/wow/wow.min.js"></script>
+  <script src="../assets/vendor/wow/wow.min.js"></script>
 
-<script src="../assets/js/theme.js"></script>
-  
+  <script src="../assets/js/theme.js"></script>
+
 </body>
+
 </html>

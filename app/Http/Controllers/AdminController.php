@@ -41,6 +41,8 @@ class AdminController extends Controller
         $imagename = time() . '.' . $image->getClientoriginalExtension();
         $request->file->move('teacherimage', $imagename);
         $teacher->image = $imagename;
+        
+        
         $teacher->name = $request->name;
         $teacher->phone = $request->phone;
         $teacher->email = $request->email;

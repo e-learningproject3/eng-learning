@@ -9,6 +9,7 @@ use App\Http\Controllers\LessonController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\QuizController;
 use App\Http\Controllers\TeacherController;
+use App\Http\Controllers\TopicController;
 use App\Models\Lesson;
 use App\Models\Teacher;
 use GuzzleHttp\Middleware;
@@ -26,6 +27,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/test', function () {
+    return view('test');
+});
 
 Route::get('/', [HomeController::class, 'index']);
 
@@ -94,17 +98,73 @@ Route::get('/updatelesson/{id}', [LessonController::class, 'updatelesson']);
 
 //user -> post
 Route::get('/post', [LessonController::class, 'news']);
+
 Route::get('/details/{id}', [LessonController::class, 'details_post']);
 
+Route::get('/skills', [LessonController::class, 'skills']);
+Route::get('/grammar', [LessonController::class, 'grammar']);
+Route::get('/vocubulary', [LessonController::class, 'vocubulary']);
+Route::get('/business', [LessonController::class, 'business']);
 
-//quiz
-Route::get('/quiz', [QuizController::class, 'quiz']);
-Route::get('/create_quiz', [QuizController::class, 'create']);
-Route::post('/store_quiz', [QuizController::class, 'store']);
-// Route::get('/lesson_details/{id}', [QuizController::class, 'lesson_details']);
-Route::get('/delete_quiz/{id}', [QuizController::class, 'delete']);
-Route::post('/edit_quiz/{id}', [QuizController::class, 'edit']);
-Route::get('/update_quiz/{id}', [QuizController::class, 'update']);
+//post user listening
+Route::get('/listening', [LessonController::class, 'listening']);
+
+Route::get('/elementary', [LessonController::class, 'elementary']);
+Route::get('/pre_elementary', [LessonController::class, 'pre_elementary']);
+Route::get('/intermediate', [LessonController::class, 'intermediate']);
+Route::get('/upper_intermediate', [LessonController::class, 'upper_intermediate']);
+Route::get('/advanced', [LessonController::class, 'advanced']);
+//reading
+Route::get('/reading', [LessonController::class, 'reading']);
+
+Route::get('/elementary_reading', [LessonController::class, 'elementary_reading']);
+Route::get('/pre_elementary_reading', [LessonController::class, 'pre_elementary_reading']);
+Route::get('/intermediate_reading', [LessonController::class, 'intermediate_reading']);
+Route::get('/upper_intermediate_reading', [LessonController::class, 'upper_intermediate_reading']);
+Route::get('/advanced_reading', [LessonController::class, 'advanced_reading']);
+//speaking
+Route::get('/speaking', [LessonController::class, 'speaking']);
+
+Route::get('/elementary_speaking', [LessonController::class, 'elementary_speaking']);
+Route::get('/pre_elementary_speaking', [LessonController::class, 'pre_elementary_speaking']);
+Route::get('/intermediate_speaking', [LessonController::class, 'intermediate_speaking']);
+Route::get('/upper_intermediate_speaking', [LessonController::class, 'upper_intermediate_speaking']);
+Route::get('/advanced_speaking', [LessonController::class, 'advanced_speaking']);
+//writing
+Route::get('/writing', [LessonController::class, 'writing']);
+
+Route::get('/elementary_writing', [LessonController::class, 'elementary_writing']);
+Route::get('/pre_elementary_writing', [LessonController::class, 'pre_elementary_writing']);
+Route::get('/intermediate_writing', [LessonController::class, 'intermediate_writing']);
+Route::get('/upper_intermediate_writing', [LessonController::class, 'upper_intermediate_writing']);
+Route::get('/advanced_writing', [LessonController::class, 'advanced_writing']);
+
+
+// post user vocubulary
+Route::get('/elementary_vocub', [LessonController::class, 'elementary_vocub']);
+Route::get('/pre_elementary_vocub', [LessonController::class, 'pre_elementary_vocub']);
+Route::get('/intermediate_vocub', [LessonController::class, 'intermediate_vocub']);
+Route::get('/upper_intermediate_vocub', [LessonController::class, 'upper_intermediate_vocub']);
+Route::get('/advanced_vocub', [LessonController::class, 'advanced_vocub']);
+
+
+//grammar
+Route::get('/elementary_grammar', [LessonController::class, 'elementary_grammar']);
+Route::get('/pre_elementary_grammar', [LessonController::class, 'pre_elementary_grammar']);
+Route::get('/intermediate_grammar', [LessonController::class, 'intermediate_grammar']);
+Route::get('/upper_intermediate_grammar', [LessonController::class, 'upper_intermediate_grammar']);
+Route::get('/advanced_grammar', [LessonController::class, 'advanced_grammar']);
+
+
+
+//topic
+Route::get('/topic', [TopicController::class, 'topic_view']);
+Route::get('/create_topic', [TopicController::class, 'create_topic']);
+Route::post('/store_topic', [TopicController::class, 'store_topic']);
+
+
+
+
 
 //comment
 Route::post('/comment', [CommentController::class, 'comment']);

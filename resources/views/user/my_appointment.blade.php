@@ -69,7 +69,7 @@
 
         <div class="collapse navbar-collapse" id="navbarSupport">
           <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
+            <li class="nav-item active">
               <a class="nav-link" href="{{url('/')}}">Home</a>
             </li>
             <li class="nav-item">
@@ -81,18 +81,15 @@
             <li class="nav-item">
               <a class="nav-link" href="{{url('post')}}">Lesson</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{url('contact')}}">Contact</a>
-            </li>
+
 
             @if (Route::has('login'))
 
             @auth
             <li class="nav-item">
-              <a class="nav-link" style="background-color: skyblue; color:white;" href="{{url('myappointment')}}">My Appointment</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" style="background-color: gray; color:white;" href="{{url('full-calender')}}">My Schedule </a>
+              <a class="nav-link" href="{{url('full-calender')}}">My Schedule </a>
             </li>
             <x-app-layout>
 
@@ -101,10 +98,10 @@
             @else
 
             <li class="nav-item">
-              <a class="btn btn-primary ml-lg-3" href="{{route('login')}}">Login</a>
+              <a class="btn btn-outline-primary ml-lg-3" href="{{route('login')}}">Login</a>
             </li>
             <li class="nav-item">
-              <a class="btn btn-primary ml-lg-3" href="{{route('register')}}">Register</a>
+              <a class="btn btn-outline-success ml-lg-3" href="{{route('register')}}">Register</a>
             </li>
 
             @endauth
@@ -118,7 +115,45 @@
   </header>
 
 
-  <div align="center" style="padding: 70px;">
+  <div class="row ">
+    <div class="col-12 grid-margin">
+      <div class="card">
+        <div class="card-body">
+
+          <div class="table-responsive">
+            <table class="table table-primary table-striped">
+              <thead>
+                <tr>
+                  <th style="padding: 10px; font-size: 20px; text-align: center;">Teacher Name</th>
+                  <th style="padding: 10px; font-size: 20px; text-align: center;">Date</th>
+                  <th style="padding: 10px; font-size: 20px; text-align: center;">Message</th>
+                  <th style="padding: 10px; font-size: 20px; text-align: center;">Status</th>
+                  <th style="padding: 10px; font-size: 20px; text-align: center;">Cancel Appointment</th>
+                </tr>
+              </thead>
+              <tbody>
+                    @foreach($appoint as $appoints)
+                  <tr>
+                    @foreach($teacher as $teachers)
+                    <td style="padding: 10px; font-size: 20px; text-align: center;">{{$teachers -> name}}</td>
+                    @endforeach
+                    <td style="padding: 10px; font-size: 20px; text-align: center;">{{$appoints -> date}}</td>
+                    <td style="padding: 10px; font-size: 20px; text-align: center;">{{$appoints -> message}}</td>
+                    <td style="padding: 10px; font-size: 20px; text-align: center;">{{$appoints -> status}}</td>
+                    <td style="padding: 10px; font-size: 20px; text-align: center;"><a class="btn btn-outline-danger" onclick="return confirm('Are you sure to cancel this?')" href="{{url('cancel_appoint', $appoints -> id)}}">Cancel</a></td>
+                  </tr>
+                  @endforeach
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- <div align="center" style="padding: 70px;">
     <table>
       <tr style="background-color: black;">
         <th style="padding: 10px; font-size: 20px; color: white;">Teacher Name</th>
@@ -130,7 +165,9 @@
       </tr>
       @foreach($appoint as $appoints)
       <tr style="background-color: black;" align="center">
-        <td style="padding: 10px; font-size: 20px; color: white;">{{$appoints -> teacher}}</td>
+      @foreach($teacher as $teachers)
+        <td style="padding: 10px; font-size: 20px; color: white;">{{$teachers -> name}}</td>
+        @endforeach
         <td style="padding: 10px; font-size: 20px; color: white;">{{$appoints -> date}}</td>
         <td style="padding: 10px; font-size: 20px; color: white;">{{$appoints -> message}}</td>
         <td style="padding: 10px; font-size: 20px; color: white;">{{$appoints -> status}}</td>
@@ -138,7 +175,7 @@
       </tr>
       @endforeach
     </table>
-  </div>
+  </div> -->
 
   <script src="../assets/js/jquery-3.5.1.min.js"></script>
 

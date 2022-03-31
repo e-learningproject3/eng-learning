@@ -96,7 +96,7 @@
                     </div>
 
                     <div style="padding: 15px;">
-                        <input type="submit" class="btn btn-success">
+                        <input type="submit" class="btn btn-outline-success">
                     </div>
                 </form>
             </div>

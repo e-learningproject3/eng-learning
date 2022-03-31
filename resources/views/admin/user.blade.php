@@ -34,20 +34,20 @@
 
         @include('admin.navbar')
         <div class="container-fluid page-body-wrapper">
-            <div align="center" style="padding-top: 100px;">
-            <table style="background-color: gray;">
+            <div class="table-responsive">
+            <table class="table">
                     <tr>
-                        <th style="padding: 10px;">User Name</th>
-                        <th style="padding: 10px;">Phone</th>
-                        <th style="padding: 10px;">Email</th>
+                        <th style="padding: 10px;padding-right: 100px;text-align: center; color:white;">User Name</th>
+                        <th style="padding: 10px;padding-right: 100px;text-align: center; color:white;">Phone</th>
+                        <th style="padding: 10px;padding-right: 100px;text-align: center; color:white;">Email</th>
                       
                     </tr>
 
                     @foreach($data as $user)
-                    <tr align="center" style="background-color: silver; color: black;">
-                        <td>{{$user -> name}}</td>
-                        <td>{{$user -> phone}}</td>
-                        <td>{{$user -> email}}</td>
+                    <tr >
+                        <td style="padding: 10px;padding-right: 100px;text-align: center; color:white;">{{$user -> name}}</td>
+                        <td style="padding: 10px;padding-right: 100px;text-align: center; color:white;">{{$user -> phone}}</td>
+                        <td style="padding: 10px;padding-right: 100px;text-align: center; color:white;">{{$user -> email}}</td>
                       
                     </tr>
                     @endforeach

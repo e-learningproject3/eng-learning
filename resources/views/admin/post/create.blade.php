@@ -39,16 +39,15 @@
                     <a href="/blog" class="btn btn-outline-primary btn-sm">Go back</a>
                     <div class="border rounded mt-5 pl-4 pr-4 pt-4 pb-4">
                         <h1 class="display-4">Create a New Post</h1>
-                        <p>Fill and submit this form to create a post</p>
-
-                        <hr>
+                        <br>
+                        <hr><br>
 
 
                         <form action="{{url('store')}}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
-                                <div class="control-group col-12">
-                                    <label for="title">Post Title</label>
+                                <div class="mb-3">
+                                    <label for="title" class="form-label">Post Title</label>
                                     <input style="color: gray;" type="text" id="title" class="form-control" name="title" placeholder="Enter Post Title" required>
                                 </div>
                                 <div class="row">
@@ -56,33 +55,88 @@
                                         <select style="color: black;" name="teacher" id="teacher" class="custom-select">
                                             <option style="color: black;" value="">------Select Teacher-----</option>
                                             @foreach($teacher as $teachers)
-                                            <option style="color: black;" value="{{$teachers -> name}}">
+                                            <option style="color: black;" value="{{$teachers -> id}}">
                                                 {{$teachers -> name}} - {{$teachers -> speciality}}
                                             </option>
                                             @endforeach
                                         </select>
 
+
+                                        <select style="color: black;" name="type" id="type" class="custom-select" required>
+                                            <option style="color: black;" value="">------Select Topic-----</option>
+                                            <option name="type" style="color: black;" value="skill - listening">
+                                                Skills - Listening
+                                            </option>
+                                            <option name="type" style="color: black;" value="skill - reading">
+                                                Skills - Reading
+                                            </option>
+                                            <option name="type" style="color: black;" value="skill - speaking">
+                                                Skills - Speaking
+                                            </option>
+                                            <option name="type" style="color: black;" value="skill - writing">
+                                                Skills - Writing
+                                            </option>
+                                            <option style="color: black;" value="grammar">
+                                                Grammar
+                                            </option>
+                                            <option style="color: black;" value="vocubulary">
+                                                Vocubulary
+                                            </option>
+                                            <option style="color: black;" value="business">
+                                                Business
+                                            </option>
+                                        </select>
+
+                                        <select style="color: black;" name="level" id="level" class="custom-select" required>
+                                            <option style="color: black;" value="">------Select Level-----</option>
+                                            <option name="level" style="color: black;" value="elementary">
+                                                Elementary (A1)
+                                            </option>
+                                            <option style="color: black;" value="pre-intermediate">
+                                                Pre-intermediate (A2)
+                                            </option>
+                                            <option style="color: black;" value="intermediate">
+                                                Intermediate (B1)
+                                            </option>
+                                            <option style="color: black;" value="upper-intermediate">
+                                                Upper intermediate (B2)
+                                            </option>
+                                            <option style="color: black;" value="advanced">
+                                                Advanced (C1)
+                                            </option>
+                                        </select>
+
                                         <select style="color: black;" name="topic" id="topic" class="custom-select">
                                             <option style="color: black;" value="">------Select Topic-----</option>
                                             @foreach($topic as $topics)
-                                            <option style="color: black;" value="{{$topics -> content}}">
+                                            <option style="color: black;" value="{{$teachers -> id}}">
                                                 {{$topics -> content}}
                                             </option>
                                             @endforeach
                                         </select>
+
                                     </div>
-                                    <div class="control-group col-12 mt-2">
-                                        <label for="body">Post Body</label>
-                                        <textarea style="color: white;" id="body" class="form-control" name="body" placeholder="Enter Post Body" rows="" required></textarea>
+                                    <div class="mb-3">
+                                        <label for="body" class="form-label">Post Body</label>
+                                        <textarea style="color: white; height: 150px;" id="body" class="form-control" name="body" placeholder="Enter Post Body" rows="" required></textarea>
                                     </div>
                                 </div>
-                                <div class="row mt-2">
+                                <div class="mb-3">
                                     <div style="padding-top: 15px;">
-                                        <label>Image</label>
-                                        <input style="width: 220px;" type="file" name="file" required="">
+                                        <label for="formFile" class="form-label">Image</label>
+                                        <input class="form-control" style="background-color: white; color: black;padding-top: 8px; padding-left: 3px;" type="file" name="image" required>
                                     </div>
+                                    <div style="padding-top: 15px;">
+                                        <label for="formFile" class="form-label">Video</label>
+                                        <input class="form-control" style="background-color: white; color: black;padding-top: 8px; padding-left: 3px;" type="file" name="file" required>
+                                    </div>
+                                    <div style="padding-top: 15px;">
+                                        <label for="formFile" class="form-label">File</label>
+                                        <input class="form-control" style="background-color: white; color: black;padding-top: 8px; padding-left: 3px;" type="file" name="video" required>
+                                    </div>
+                                    <br><br>
                                     <div class="control-group col-12 text-center">
-                                        <input type="submit" class="btn btn-success">
+                                        <input type="submit" class="btn btn-outline-success">
                                     </div>
                                 </div>
                         </form>

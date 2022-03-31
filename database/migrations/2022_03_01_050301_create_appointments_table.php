@@ -18,11 +18,13 @@ class CreateAppointmentsTable extends Migration
             $table -> string('name') -> nullable();
             $table -> string('email') -> nullable();
             $table -> string('phone') -> nullable();
-            $table -> string('teacher') -> nullable();
+            $table -> unsignedBigInteger('teacher') -> nullable();
+            $table -> foreign('teacher')->references('id')->on('teachers')->onDelete('cascade');
             $table -> string('date') -> nullable();
             $table -> string('message') -> nullable();
             $table -> string('status') -> nullable();
-            $table -> string('user_id') -> nullable();
+            $table -> unsignedBigInteger('user_id') -> nullable();
+            $table -> foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
             $table->timestamps();
         });

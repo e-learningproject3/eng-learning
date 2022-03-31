@@ -42,10 +42,10 @@
     @include('admin.navbar')
 
     <!-- partial -->
-    <div class="container-fluid page-body-wrapper">
+    <div style="margin-left: 400px;" class="container-fluid page-body-wrapper">
 
     <!-- alert -->
-      <div class="container" align="center" style="padding-top: 100px;">
+      <div class="mb-3">
         @if(session() -> has('message'))
         <button type="button" class="close" data-dismiss="alert">
           x
@@ -59,22 +59,22 @@
 
         <form action="{{url('upload_teacher')}}" method="POST" enctype="multipart/form-data">
           @csrf
-          <div style="padding-top: 15px;">
-            <label> Teacher Name</label>
-            <input type="text" style="color: black;" name="name" placeholder="Write teacher's name.." required="">
+          <div class="mb-3" style="padding-top: 15px;">
+            <label class="form-label"> Teacher Name</label>
+            <input type="text" style="color: gray;" class="form-control" name="name" placeholder="Write teacher's name.." required="">
           </div>
 
-          <div style="padding-top: 15px;">
+          <div class="mb-3" style="padding-top: 15px;">
             <label> Teacher Phone</label>
-            <input type="text" style="color: black;" name="phone" placeholder="Write teacher's phone.." required="">
+            <input type="text" style="color: gray;" class="form-control" name="phone" placeholder="Write teacher's phone.." required="">
           </div>
 
-          <div style="padding-top: 15px;">
+          <div class="mb-3" style="padding-top: 15px;">
             <label> Teacher Email</label>
-            <input type="text" style="color: black;" name="email" placeholder="Write teacher's email.." required="">
+            <input type="text" style="color: gray;" class="form-control" name="email" placeholder="Write teacher's email.." required="">
           </div>
 
-          <div style="padding-top: 15px;">
+          <div class="mb-3" style="padding-top: 15px;">
             <label> Speciality</label>
             <select name="speciality" style="color: black; width: 220px;">
               <option> --Select--</option>
@@ -87,19 +87,19 @@
 
             </select>
           </div>
-          <div style="padding-top: 15px;">
-            <label> Teacher Image</label>
-            <input style="width: 220px;" type="file" name="file" required="">
+          <div class="mb-3">
+            <label > Teacher Image</label>
+            <input type="file" name="file" class="form-control" aria-label="file example" style="background-color: white; color: black; padding-top: 8px; padding-left: 3px;" required>
           </div>
 
-          <div style="padding-top: 15px;">
+          <div class="mb-3" style="padding-top: 15px;">
             <label>Password</label>
-            <input type="password" style="color: black;" name="password" placeholder="Write teacher's password.." required="">
+            <input type="password" style="color: gray;" class="form-control" name="password" placeholder="Write teacher's password.." required="">
           </div>
 
 
-          <div style="padding-top: 15px;">
-            <input type="submit" class="btn btn-success">
+          <div style="padding-top: 15px; ">
+            <input type="submit" class="btn btn-outline-success">
           </div>
         </form>
       </div>

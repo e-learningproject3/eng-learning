@@ -15,15 +15,22 @@ class CreateLessonsTable extends Migration
     {
         Schema::create('lessons', function (Blueprint $table) {
             $table -> id();
-            $table -> string('name');
-            $table -> string('content');
-            $table -> string('image') -> default('default.jpg');
-            $table -> string('teacher') -> nullable();
-            $table -> string('topic') -> nullable();
-            // $table -> unsignedBigInteger('id_teacher');
-            // $table -> foreign('id_teacher')->references('id')->on('teachers')->onDelete('cascade');
-            // $table -> unsignedBigInteger('id_topic');
-            // $table -> foreign('id_topic')->references('id')->on('topics')->onDelete('cascade');
+            $table -> string('name') -> nullable();
+            $table -> string('content') -> nullable();
+            $table -> string('image') -> default('default.jpg') -> nullable();
+            $table -> unsignedBigInteger('teacher') -> nullable();
+            $table -> foreign('teacher')->references('id')->on('teachers')->onDelete('cascade');
+
+            $table -> string('type') -> nullable();
+
+            $table -> unsignedBigInteger('topic') -> nullable();
+            $table -> foreign('topic')->references('id')->on('topics')->onDelete('cascade');
+
+            $table -> string('level') -> nullable();
+            $table -> string('file') -> nullable();
+            $table -> string('video') -> nullable();
+
+
             $table->timestamps();
         });
     }

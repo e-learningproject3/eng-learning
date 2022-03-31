@@ -34,30 +34,35 @@
 
         @include('admin.navbar')
         <div class="container-fluid page-body-wrapper">
-            <div align="center" style="padding-top: 100px;">
-                <table style="background-color: gray;">
-                    <tr>
-                        <th style="padding: 10px;">Teacher Name</th>
-                        <th style="padding: 10px;">Phone</th>
-                        <th style="padding: 10px;">Speciality</th>
-                        <!-- <th style="padding: 10px;">Room No</th> -->
-                        <th style="padding: 10px;">Image</th>
-                        <th style="padding: 10px;">Delete</th>
-                        <th style="padding: 10px;">Update</th>
+            <div class="table-responsive">
+                <br>
+                <a class="btn btn-outline-success" href="{{url('add_teacher_view')}}">Add Teacher</a>
+                <br>
+                <br>
+                <table class="table">
+                    <thead>
+                        <tr style="color: white;">
+                            <th style="padding: 10px;padding-right: 100px;text-align: center; color:white;">Teacher Name</th>
+                            <th style="padding: 10px;padding-right: 100px;text-align: center; color:white;">Phone</th>
+                            <th style="padding: 10px;padding-right: 100px;text-align: center; color:white;">Speciality</th>
+                            <!-- <th style="padding: 10px;">Room No</th> -->
+                            <th style="padding: 10px;padding-right: 100px;text-align: center; color:white;">Image</th>
+                            <th style="padding: 10px;padding-right: 100px;text-align: center; color:white;">Delete</th>
+                            <th style="padding: 10px;padding-right: 100px;text-align: center; color:white;">Update</th>
 
-                    </tr>
-
+                        </tr>
+                    </thead>
                     @foreach($data as $teacher)
-                    <tr align="center" style="background-color: silver; color: black;">
-                        <td>{{$teacher -> name}}</td>
-                        <td>{{$teacher -> phone}}</td>
-                        <td>{{$teacher -> speciality}}</td>
-                        <td><img height="100" width="100" src="teacherimage/{{$teacher -> image}}" alt=""></td>
+                    <tr>
+                        <td style="padding: 10px;padding-right: 100px;text-align: center; color:white;">{{$teacher -> name}}</td>
+                        <td style="padding: 10px;padding-right: 100px;text-align: center; color:white;">{{$teacher -> phone}}</td>
+                        <td style="padding: 10px;padding-right: 100px;text-align: center; color:white;">{{$teacher -> speciality}}</td>
+                        <td style="padding: 10px;padding-right: 100px;text-align: center; color:white;"><img height="100" width="100" src="teacherimage/{{$teacher -> image}}" alt=""></td>
                         <td>
-                            <a onclick="return confirm('Are you sure to delete this?')" class="btn btn-danger" href="{{url('deleteteacher', $teacher -> id)}}">Delete</a>
+                            <a onclick="return confirm('Are you sure to delete this?')" class="btn btn-outline-danger" href="{{url('deleteteacher', $teacher -> id)}}">Delete</a>
                         </td>
                         <td>
-                            <a class="btn btn-primary" href="{{url('updateteacher', $teacher -> id)}}">Update</a>
+                            <a class="btn btn-outline-primary" href="{{url('updateteacher', $teacher -> id)}}">Update</a>
                         </td>
                     </tr>
                     @endforeach

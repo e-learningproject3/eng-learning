@@ -91,27 +91,10 @@
         <div class="col-md-4 grid-margin stretch-card">
           <div class="card">
             <div class="card-body">
-              <h4 class="card-title">Transaction History</h4>
-              <canvas id="transaction-history" class="transaction-chart"></canvas>
-              <div class="bg-gray-dark d-flex d-md-block d-xl-flex flex-row py-3 px-4 px-md-3 px-xl-4 rounded mt-3">
-                <div class="text-md-center text-xl-left">
-                  <h6 class="mb-1">Transfer to Paypal</h6>
-                  <p class="text-muted mb-0">07 Jan 2019, 09:12AM</p>
-                </div>
-                <div class="align-self-center flex-grow text-right text-md-center text-xl-right py-md-2 py-xl-0">
-                  <h6 class="font-weight-bold mb-0">$236</h6>
-                </div>
-              </div>
-              <div class="bg-gray-dark d-flex d-md-block d-xl-flex flex-row py-3 px-4 px-md-3 px-xl-4 rounded mt-3">
-                <div class="text-md-center text-xl-left">
-                  <h6 class="mb-1">Tranfer to Stripe</h6>
-                  <p class="text-muted mb-0">07 Jan 2019, 09:12AM</p>
-                </div>
-                <div class="align-self-center flex-grow text-right text-md-center text-xl-right py-md-2 py-xl-0">
-                  <h6 class="font-weight-bold mb-0">$593</h6>
-                </div>
-              </div>
-            </div>
+              <h4 class="card-title">Total User</h4> -->
+      <!-- <canvas id="transaction-history" class="transaction-chart"></canvas> -->
+
+      <!-- </div>
           </div>
         </div>
 
@@ -201,27 +184,31 @@
                     </tr>
                   </thead>
                   <tbody>
+                  <thead>
                     <tr>
-                      <td>
+                     
+                      @foreach($data as $appoint)
+                    <tr>
+                    <td>
                         <div class="form-check form-check-muted m-0">
                           <label class="form-check-label">
                             <input type="checkbox" class="form-check-input">
                           </label>
                         </div>
                       </td>
-                      @foreach($data as $appoint)
-                    <tr align="center" style="background-color: silver; color: black;">
                       <td style="padding: 10px;">{{$appoint -> name}}</td>
                       <td style="padding: 10px;">{{$appoint -> email}}</td>
                       <td style="padding: 10px;">{{$appoint -> phone}}</td>
-                      <td style="padding: 10px;">{{$appoint -> teacher}}</td>
+                      @foreach($name as $names)
+                      <td style="padding: 10px;">{{$names -> name}}</td>
+                      @endforeach
                       <td style="padding: 10px;">{{$appoint -> date}}</td>
                       <td style="padding: 10px;">{{$appoint -> message}}</td>
                       <td style="padding: 10px;">{{$appoint -> status}}</td>
                     </tr>
                     @endforeach
 
-
+                    </thead>
 
                   </tbody>
                 </table>
@@ -244,7 +231,7 @@
                 <li>
                   <div class="form-check form-check-primary">
                     <label class="form-check-label">
-                      <input class="checkbox" type="checkbox"> Create invoice </label>
+                      <input class="checkbox" type="checkbox"> Check list works </label>
                   </div>
                   <i class="remove mdi mdi-close-box"></i>
                 </li>
@@ -272,7 +259,7 @@
                 <li>
                   <div class="form-check form-check-primary">
                     <label class="form-check-label">
-                      <input class="checkbox" type="checkbox"> Pick up kids from school </label>
+                      <input class="checkbox" type="checkbox"> Organize an event </label>
                   </div>
                   <i class="remove mdi mdi-close-box"></i>
                 </li>
@@ -281,7 +268,21 @@
           </div>
         </div>
       </div>
+
+      <div  class="col-xl-8 col-sm-6 grid-margin stretch-card">
+        <div class="card">
+          <div style="background-color: white;" class="card-body">
+          <canvas id="myChart"></canvas>
+
+          </div>
+        </div>
+      </div>
+
     </div>
+
+   
+    
+                    
     <div class="row">
       <div class="col-12">
         <div class="card">
@@ -290,7 +291,7 @@
             <div class="row">
               <!-- <div class="col-md-5">
                 <div class="table-responsive"> -->
-                  <!-- <table class="table">
+              <!-- <table class="table">
                     <tbody>
                       <tr>
                         <td>
@@ -342,14 +343,32 @@
                       </tr>
                     </tbody>
                   </table> -->
-                <!-- </div>
+              <!-- </div>
               </div>
               <div class="col-md-7"> -->
-                <div id="audience-map" class="vector-map"></div>
+              <div id="container"></div>
+              <!-- <div id="audience-map" class="vector-map"></div> -->
               <!-- </div> -->
+
+              
+
             </div>
           </div>
         </div>
       </div>
     </div>
+
+                     
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <div id="container"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>

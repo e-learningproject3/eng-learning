@@ -44,7 +44,10 @@
         <!-- partial -->
 
         <div class="w-4/5 m-auto text-left">
-        <a class="btn btn-primary" href="{{url('updatelesson', $data -> id)}}">Update</a>
+            <a class="btn btn-outline-primary" href="{{url('updatelesson', $data -> id)}}">Update</a>
+            <br>
+            <br>
+            <hr><br><br>
             <div class="py-15">
                 <h1 class="text-6xl">
                     {{ $data->name }}
@@ -58,9 +61,11 @@
         </div>
 
         <div class="w-4/5 m-auto pt-20">
-          
+
             <span class="text-gray-500">
-                By <span class="font-bold italic text-white-800">{{ $data->name }}</span>, Created on {{ date('jS M Y', strtotime($data->updated_at)) }}
+                @foreach($teacher as $teachers)
+                By <span class="font-bold italic text-white-800">{{ $teachers->name }}</span>, Created on {{ date('jS M Y', strtotime($data->updated_at)) }}
+                @endforeach
             </span>
 
             <p class="text-xl text-gray-700 pt-8 pb-10 leading-8 font-light">

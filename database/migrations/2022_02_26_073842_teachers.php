@@ -15,12 +15,12 @@ class Teachers extends Migration
     {
         Schema::create('teachers', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->string('password');
-            $table->string('phone');
-            $table->string('speciality');
-            $table->string('image')->default('default.jpg');
+            $table->string('name') -> nullable();
+            $table->string('email')->unique() -> nullable();
+            $table->string('password') -> nullable();
+            $table->string('phone') -> nullable();
+            $table->string('speciality') -> nullable();
+            $table->string('image')-> nullable();
             $table->timestamps();
 
         });

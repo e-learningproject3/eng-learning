@@ -8,6 +8,7 @@ use App\Models\Teacher;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -25,12 +26,21 @@ class HomeController extends Controller
             //     return view('teachers.home');
             // }
             else {
+                $name = Teacher::all();
                 $teacher = Teacher::count();
                 $lesson = Lesson::count();
                 $user = User::where('usertype', '=', '0')->count();
                 $data = appointment::all();
                 $appointment = appointment::count();
-                 return view('admin.home', compact('teacher','lesson','data','user','appointment'));
+                $number = User::select(DB::raw('YEAR(created_at) as year'),DB::raw("COUNT(CASE WHEN usertype = 0 THEN 1 END) as count"))
+                ->whereYear('created_at', date('Y'))
+                ->groupBy(DB::raw("year(created_at)"))
+                ->pluck('count');
+                $lesson = Lesson::select(DB::raw("COUNT(*) as count"))
+                ->whereYear('created_at', date('Y'))
+                ->groupBy(DB::raw("Month(created_at)"))
+                ->pluck('count');
+                 return view('admin.home', compact('teacher','lesson','data','user','appointment','number','lesson','name'));
              }
         } else {
             return redirect()->back();
@@ -77,8 +87,9 @@ class HomeController extends Controller
         if (Auth::id()) {
             if (Auth::user()->usertype == 0) {
                 $userid = Auth::user()->id;
+                $teacher = Teacher::all();
                 $appoint = appointment::where('user_id', $userid)->get();
-                return view('user.my_appointment', compact('appoint'));
+                return view('user.my_appointment', compact('appoint','teacher'));
             }
         } else {
             return redirect()->back();
