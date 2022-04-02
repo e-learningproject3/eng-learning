@@ -87,9 +87,10 @@
 
             @auth
             <li class="nav-item">
+              <a class="nav-link" href="{{url('myappointment')}}">Appointment</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{url('full-calender')}}">My Schedule </a>
+              <a class="nav-link" href="{{url('full-calender')}}"> Schedule </a>
             </li>
             <x-app-layout>
 
@@ -98,10 +99,10 @@
             @else
 
             <li class="nav-item">
-              <a class="btn btn-outline-primary ml-lg-3" href="{{route('login')}}">Login</a>
+              <a class="btn btn-outline-dark ml-lg-3" href="{{route('login')}}">Login</a>
             </li>
             <li class="nav-item">
-              <a class="btn btn-outline-success ml-lg-3" href="{{route('register')}}">Register</a>
+              <a class="btn btn-outline-dark ml-lg-3" href="{{route('register')}}">Register</a>
             </li>
 
             @endauth
@@ -138,7 +139,7 @@
                     <td style="padding: 10px; font-size: 20px; text-align: center;">{{$teachers -> name}}</td>
                     @endforeach
                     <td style="padding: 10px; font-size: 20px; text-align: center;">{{$appoints -> date}}</td>
-                    <td style="padding: 10px; font-size: 20px; text-align: center;">{{$appoints -> message}}</td>
+                    <td style="padding: 10px; font-size: 20px; text-align: center;">{{substr($appoints -> message,0,20)}}</td>
                     <td style="padding: 10px; font-size: 20px; text-align: center;">{{$appoints -> status}}</td>
                     <td style="padding: 10px; font-size: 20px; text-align: center;"><a class="btn btn-outline-danger" onclick="return confirm('Are you sure to cancel this?')" href="{{url('cancel_appoint', $appoints -> id)}}">Cancel</a></td>
                   </tr>

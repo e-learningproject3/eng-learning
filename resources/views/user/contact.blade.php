@@ -108,10 +108,10 @@
             @else
 
             <li class="nav-item">
-              <a class="btn btn-outline-primary ml-lg-3" href="{{route('login')}}">Login</a>
+              <a class="btn btn-outline-dark ml-lg-3" href="{{route('login')}}">Login</a>
             </li>
             <li class="nav-item">
-              <a class="btn btn-outline-success ml-lg-3" href="{{route('register')}}">Register</a>
+              <a class="btn btn-outline-dark ml-lg-3" href="{{route('register')}}">Register</a>
             </li>
 
             @endauth
@@ -130,7 +130,7 @@
       <div class="container text-center wow zoomIn">
         <!-- <span class="subhead">One of the most effective ways to improve</span> -->
         <h1 class="display-4">Contact Us</h1>
-        <a href="{{url('contact')}}" class="btn btn-outline-primary">Let's Consult</a>
+        <a href="{{url('about')}}" class="btn btn-outline-primary">Let's Consult</a>
       </div>
     </div>
   </div>

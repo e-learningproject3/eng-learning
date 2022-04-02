@@ -88,18 +88,16 @@
             <li class="nav-item">
               <a class="nav-link" href="{{url('news')}}">News</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{url('contact')}}">Contact</a>
-            </li>
+           
 
             @if (Route::has('login'))
 
             @auth
             <li class="nav-item">
-              <a class="nav-link" style="background-color: skyblue; color:white;" href="{{url('myappointment')}}">My Appointment</a>
+              <a class="nav-link" href="{{url('myappointment')}}">Appointment</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" style="background-color: gray; color:white;" href="{{url('full-calender')}}">My Schedule </a>
+              <a class="nav-link" href="{{url('full-calender')}}">Schedule </a>
             </li>
             <x-app-layout>
 
@@ -108,10 +106,10 @@
             @else
 
             <li class="nav-item">
-              <a class="btn btn-primary ml-lg-3" href="{{route('login')}}">Login</a>
+              <a class="btn btn-outline-dark ml-lg-3" href="{{route('login')}}">Login</a>
             </li>
             <li class="nav-item">
-              <a class="btn btn-primary ml-lg-3" href="{{route('register')}}">Register</a>
+              <a class="btn btn-outline-dark ml-lg-3" href="{{route('register')}}">Register</a>
             </li>
 
             @endauth
@@ -130,7 +128,7 @@
       <div class="container text-center wow zoomIn">
         <!-- <span class="subhead">One of the most effective ways to improve</span> -->
         <h1 class="display-4">Lessons</h1>
-        <a href="{{url('contact')}}" class="btn btn-outline-primary">Let's Consult</a>
+        <a href="{{url('about')}}" class="btn btn-outline-primary">Let's Consult</a>
       </div>
     </div>
   </div>
